@@ -27,34 +27,50 @@ class GlimmerKlondikeSolitaire
           label # filler TODO DELETE
           label # filler
           dealt_pile(game: game) {
-            layout_data {
-              width_hint 51
-              height_hint 81
-            }
+            playing_card_layout_data
           }
           dealing_pile(game: game) {
-            layout_data {
-              width_hint 51
-              height_hint 81
-            }
+            playing_card_layout_data
           }
           
           # row 2
           column_pile(game: game, count: 1) {
-            layout_data {
-              width_hint 51
-              height_hint 81
-            }
+            playing_card_column_layout_data
           }
-#           column_pile(2)
-#           column_pile(3)
-#           column_pile(4)
-#           column_pile(5)
-#           column_pile(6)
-#           column_pile(7)
+          column_pile(game: game, count: 2) {
+            playing_card_column_layout_data
+          }
+          column_pile(game: game, count: 3) {
+            playing_card_column_layout_data
+          }
+          column_pile(game: game, count: 4) {
+            playing_card_column_layout_data
+          }
+          column_pile(game: game, count: 5) {
+            playing_card_column_layout_data
+          }
+          column_pile(game: game, count: 6) {
+            playing_card_column_layout_data
+          }
+          column_pile(game: game, count: 7) {
+            playing_card_column_layout_data
+          }
         }
       }
   
+      def playing_card_layout_data
+        layout_data {
+          width_hint 51
+          height_hint 81
+        }
+      end
+  
+      def playing_card_column_layout_data
+        layout_data {
+          width_hint 51
+          height_hint 221
+        }
+      end
     end
   end
 end

@@ -24,10 +24,10 @@ class GlimmerKlondikeSolitaire
       }
       
       after_body {
-        observe(game, "column_piles[#{count - 1}]") do |new_column_pile|
-          build_column_pile(new_column_pile)
+        observe(game.column_piles[count - 1], :playing_cards) do |new_playing_cards|
+          build_column_pile(new_playing_cards)
         end
-        build_column_pile(game.column_piles[count - 1])
+        build_column_pile(game.column_piles[count - 1].playing_cards)
       }
       
       body {
@@ -36,21 +36,21 @@ class GlimmerKlondikeSolitaire
         }
       }
   
-      def build_column_pile(pile)
+      def build_column_pile(playing_cards)
         body_root.shapes.to_a.each(&:dispose)
-        pile.playing_cards.each_with_index do |playing_card, i|
+        playing_cards.each_with_index do |card, i|
           body_root.content {
-            rectangle(0, i*5, 50, 80) {
+            rectangle(0, i*20, 50, 80) {
               background :dark_green
               
               rectangle(0, 0, 49, 79, 15, 15) {
                 background :white
                 
                 text {
-                  string <= [pile, 'playing_cards.last', on_read: ->(card) {card ? "#{card.rank} #{card.suit.to_s[0].upcase}" : ''}]
-                  x :default
-                  y :default
-                  foreground <= [pile, 'playing_cards.last', on_read: ->(card) {card.color if card}]
+                  string card ? "#{card.rank} #{card.suit.to_s[0].upcase}" : ''
+                  x 0
+                  y 0
+                  foreground card.color if card
                 }
               }
             }

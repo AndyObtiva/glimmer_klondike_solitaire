@@ -49,8 +49,8 @@ class GlimmerKlondikeSolitaire
               
               text {
                 string <= [game.dealt_pile, 'playing_cards.last', on_read: ->(card) {"#{card.rank} #{card.suit.to_s[0].upcase}" if card}]
-                x :default
-                y :default
+                x 0
+                y 0
                 foreground <= [game.dealt_pile, 'playing_cards.last', on_read: ->(card) {card.color if card}]
               }
             }

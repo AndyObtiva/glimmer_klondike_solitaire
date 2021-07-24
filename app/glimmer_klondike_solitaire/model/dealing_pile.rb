@@ -18,7 +18,14 @@ class GlimmerKlondikeSolitaire
 
       def deal!
         playing_card = playing_cards.shift
-        @game.dealt_pile.push!(playing_card) unless playing_card.nil?
+        if playing_card.nil?
+          @game.dealt_pile.playing_cards.each do |a_playing_card|
+            playing_cards << a_playing_card
+          end
+          @game.dealt_pile.playing_cards.clear
+        else
+          @game.dealt_pile.push!(playing_card)
+        end
     end
       
       def playing_cards

@@ -3,6 +3,7 @@ require_relative 'playing_card'
 class GlimmerKlondikeSolitaire
   module Model
     class ColumnPile
+      include Glimmer::DataBinding::ObservableModel
       attr_reader :count
     
       def initialize(game, count)
@@ -14,6 +15,7 @@ class GlimmerKlondikeSolitaire
       def reset!
         playing_cards.clear
         count.times { playing_cards << @game.deck.pop }
+        notify_observers(:playing_cards)
       end
     
       def push!(new_playing_cards)

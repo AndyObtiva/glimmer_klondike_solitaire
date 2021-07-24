@@ -1,8 +1,12 @@
 class GlimmerKlondikeSolitaire
   module Model
-    class DealtPile
-      def initialize(game)
+    class FoundationPile
+      attr_reader :suit
+    
+      def initialize(game, suit)
         @game = game
+        @suit = suit
+        reset!
       end
       
       def reset!
@@ -10,11 +14,7 @@ class GlimmerKlondikeSolitaire
       end
     
       def push!(playing_card)
-        playing_cards.push(playing_card)
-      end
-      
-      def pop!
-        playing_cards.pop
+        playing_cards.push(playing_card) if playing_card.suit == suit && playing_card == (playing_cards.last.rank + 1)
       end
       
       def playing_cards

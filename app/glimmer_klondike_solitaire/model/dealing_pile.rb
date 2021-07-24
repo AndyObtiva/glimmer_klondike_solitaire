@@ -1,6 +1,3 @@
-require_relative 'playing_card'
-require_relative 'dealt_pile'
-
 class GlimmerKlondikeSolitaire
   module Model
     class DealingPile

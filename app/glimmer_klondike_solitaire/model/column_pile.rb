@@ -1,5 +1,3 @@
-require_relative 'playing_card'
-
 class GlimmerKlondikeSolitaire
   module Model
     class ColumnPile

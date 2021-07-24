@@ -1,5 +1,5 @@
 require_relative 'playing_card'
-require_relative 'discarding_pile'
+require_relative 'dealt_pile'
 require_relative 'dealing_pile'
 
 class GlimmerKlondikeSolitaire
@@ -12,7 +12,7 @@ class GlimmerKlondikeSolitaire
           PlayingCard.refresh_deck!
           DealingPile.playing_cards.clear
           24.times.map { DealingPile.playing_cards << PlayingCard.deck.pop }
-          DiscardingPile.playing_cards.clear
+          DealtPile.playing_cards.clear
         end
       end
     end

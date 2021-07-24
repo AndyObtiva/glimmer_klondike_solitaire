@@ -1,5 +1,5 @@
 require_relative 'dealing_pile'
-require_relative 'discarding_pile'
+require_relative 'dealt_pile'
 
 require 'glimmer_klondike_solitaire/model/game'
 
@@ -27,7 +27,7 @@ class GlimmerKlondikeSolitaire
           label # filler TODO DELETE
           label # filler TODO DELETE
           label # filler
-          discarding_pile {
+          dealt_pile {
             layout_data {
               width_hint 51
               height_hint 81

@@ -1,3 +1,5 @@
+require_relative 'tableau'
+
 class GlimmerKlondikeSolitaire
   module View
     class AppView
@@ -8,7 +10,6 @@ class GlimmerKlondikeSolitaire
       # options :title, :background_color
       # option :width, default: 320
       # option :height, default: 240
-      option :greeting, default: 'Hello, World!'
   
       ## Use before_body block to pre-initialize variables to use in body
       #
@@ -36,18 +37,13 @@ class GlimmerKlondikeSolitaire
       ## Top-most widget must be a shell or another custom shell
       #
       body {
-        shell() {
+        shell {
           # Replace example content below with custom shell content
           minimum_size 420, 240
           image File.join(APP_ROOT, 'package', 'windows', "Glimmer Klondike Solitaire.ico") if OS.windows?
-          text "Glimmer Klondike Solitaire - App View"
+          text "Glimmer Klondike Solitaire"
         
-          grid_layout
-          label(:center) {
-            text <= [self, :greeting]
-            font height: 40
-            layout_data :fill, :center, true, true
-          }
+          tableau
           
           menu_bar {
             menu {

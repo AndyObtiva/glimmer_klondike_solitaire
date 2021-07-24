@@ -14,7 +14,7 @@ class GlimmerKlondikeSolitaire
           }
         }
       }
-      
+            
       option :game
       
       attr_accessor :current_image

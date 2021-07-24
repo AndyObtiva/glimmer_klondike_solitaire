@@ -1,5 +1,6 @@
 require_relative 'dealing_pile'
 require_relative 'dealt_pile'
+require_relative 'column_pile'
 
 require 'glimmer_klondike_solitaire/model/game'
 
@@ -39,7 +40,12 @@ class GlimmerKlondikeSolitaire
           }
           
           # row 2
-#           column_pile(1)
+          column_pile(game: game, count: 1) {
+            layout_data {
+              width_hint 51
+              height_hint 81
+            }
+          }
 #           column_pile(2)
 #           column_pile(3)
 #           column_pile(4)

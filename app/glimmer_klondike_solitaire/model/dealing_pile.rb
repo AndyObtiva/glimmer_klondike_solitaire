@@ -13,13 +13,13 @@ class GlimmerKlondikeSolitaire
       
       def reset!
         playing_cards.clear
-        DEALING_INITIAL_COUNT.times.map { playing_cards << @game.deck.pop }
+        DEALING_INITIAL_COUNT.times { playing_cards << @game.deck.pop }
       end
 
       def deal!
         playing_card = playing_cards.shift
         @game.dealt_pile.push!(playing_card) unless playing_card.nil?
-      end
+    end
       
       def playing_cards
         @playing_cards ||= []

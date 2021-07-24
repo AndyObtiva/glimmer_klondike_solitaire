@@ -1,3 +1,5 @@
+require_relative 'dealing_pile'
+
 class GlimmerKlondikeSolitaire
   module View
     class Tableau
@@ -9,13 +11,18 @@ class GlimmerKlondikeSolitaire
           background :dark_green
           
           # row 1
-          dealing_pile
-#           discarding_pile
-#           label # filler
 #           foundation_pile(:spades)
 #           foundation_pile(:hearts)
 #           foundation_pile(:clubs)
 #           foundation_pile(:diamonds)
+#           label # filler
+#           discarding_pile
+          dealing_pile {
+            layout_data {
+              width_hint 51
+              height_hint 81
+            }
+          }
           
           # row 2
 #           column_pile(1)

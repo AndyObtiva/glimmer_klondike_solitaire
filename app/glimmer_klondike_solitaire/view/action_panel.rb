@@ -4,6 +4,8 @@ class GlimmerKlondikeSolitaire
   module View
     class ActionPanel
       include Glimmer::UI::CustomWidget
+
+      option :game
       
       body {
         composite {
@@ -17,7 +19,7 @@ class GlimmerKlondikeSolitaire
             text 'Restart Game'
             
             on_widget_selected {
-              Model::Game.restart!
+              game.restart!
             }
           }
         }

@@ -8,10 +8,8 @@ class GlimmerKlondikeSolitaire
     class Tableau
       include Glimmer::UI::CustomWidget
       
-      before_body {
-        Model::Game.restart!
-      }
-  
+      option :game
+      
       body {
         composite {
           grid_layout 7, true
@@ -27,13 +25,13 @@ class GlimmerKlondikeSolitaire
           label # filler TODO DELETE
           label # filler TODO DELETE
           label # filler
-          dealt_pile {
+          dealt_pile(game: game) {
             layout_data {
               width_hint 51
               height_hint 81
             }
           }
-          dealing_pile {
+          dealing_pile(game: game) {
             layout_data {
               width_hint 51
               height_hint 81

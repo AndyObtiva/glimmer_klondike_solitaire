@@ -16,6 +16,7 @@ class GlimmerKlondikeSolitaire
       #
       #
       before_body {
+        @game = Model::Game.new
         Display.app_name = 'Glimmer Klondike Solitaire'
         Display.app_version = VERSION
         @display = display {
@@ -50,8 +51,8 @@ class GlimmerKlondikeSolitaire
           text "Glimmer Klondike Solitaire"
           background :dark_green
         
-          action_panel
-          tableau
+          action_panel(game: @game)
+          tableau(game: @game)
           
           menu_bar {
             menu {

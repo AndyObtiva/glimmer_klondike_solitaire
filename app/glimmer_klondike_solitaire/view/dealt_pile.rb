@@ -24,6 +24,8 @@ class GlimmerKlondikeSolitaire
         }
       }
       
+      option :game
+      
       attr_accessor :current_image
       
       before_body {
@@ -35,7 +37,7 @@ class GlimmerKlondikeSolitaire
           background :transparent
           
           image {
-            image <= [Model::DealtPile, 'playing_cards.empty?', on_read: ->(v) {v ? IMAGE_EMPTY : IMAGE_FILLED}]
+            image <= [game.dealt_pile, 'playing_cards.empty?', on_read: ->(v) {v ? IMAGE_EMPTY : IMAGE_FILLED}]
             x 0
             y 0
           }

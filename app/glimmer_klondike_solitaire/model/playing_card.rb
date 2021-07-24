@@ -5,16 +5,8 @@ class GlimmerKlondikeSolitaire
       RANK_COUNT = 13
       
       class << self
-        # refresh deck to start a new game
-        def refresh_deck!
-          @deck = nil
-          @deck = deck
-        end
-      
-        # a shuffled deck
-        # this deck is meant to be depleted when setting up a new game
         def deck
-          @deck ||= suit_decks.flatten.shuffle
+          suit_decks.flatten
         end
         
         def suit_decks

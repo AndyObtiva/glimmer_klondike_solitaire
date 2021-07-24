@@ -1,30 +1,33 @@
+require 'glimmer_klondike_solitaire/model/dealing_pile'
+
 class GlimmerKlondikeSolitaire
   module View
     class DealingPile
       include Glimmer::UI::CustomWidget
       
+      IMAGE_EMPTY = image(50, 80) {
+        rectangle(0, 0, 50, 80) {
+          background :dark_green
+          
+          rectangle(0, 0, 49, 79, 15, 15) {
+            foreground :gray
+          }
+        }
+      }
+      IMAGE_FILLED = image(50, 80) {
+        rectangle(0, 0, 50, 80) {
+          background :dark_green
+          
+          rectangle(0, 0, 49, 79, 15, 15) {
+            background :red
+          }
+        }
+      }
+      
       attr_accessor :current_image
       
       before_body {
-        @image_empty = image(50, 80) {
-          rectangle(0, 0, 50, 80) {
-            background :dark_green
-            
-            rectangle(0, 0, 49, 79, 15, 15) {
-              foreground :gray
-            }
-          }
-        }
-        @image_filled = image(50, 80) {
-          rectangle(0, 0, 50, 80) {
-            background :dark_green
-            
-            rectangle(0, 0, 49, 79, 15, 15) {
-              background :red
-            }
-          }
-        }
-        self.current_image = @image_filled
+        self.current_image = IMAGE_FILLED
       }
   
       body {
@@ -32,13 +35,13 @@ class GlimmerKlondikeSolitaire
           background :transparent
           
           image {
-            image <= [self, :current_image]
+            image <= [Model::DealingPile, :empty, on_read: ->(v) {v ? IMAGE_EMPTY : IMAGE_FILLED}]
             x 0
             y 0
           }
           
-          on_swt_mouseup do
-            self.current_image = self.current_image == @image_filled ? @image_empty : @image_filled
+          on_mouse_up do
+            Model::DealingPile.deal!
           end
         }
       }

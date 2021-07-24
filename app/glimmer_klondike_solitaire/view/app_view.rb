@@ -1,4 +1,5 @@
 require_relative 'tableau'
+require_relative 'action_panel'
 
 class GlimmerKlondikeSolitaire
   module View
@@ -38,11 +39,18 @@ class GlimmerKlondikeSolitaire
       #
       body {
         shell {
-          # Replace example content below with custom shell content
-          minimum_size 420, 240
+          row_layout(:vertical) {
+            margin_width 0
+            margin_height 0
+            fill true
+            center true
+          }
+          minimum_size 420, 320
           image File.join(APP_ROOT, 'package', 'windows', "Glimmer Klondike Solitaire.ico") if OS.windows?
           text "Glimmer Klondike Solitaire"
+          background :dark_green
         
+          action_panel
           tableau
           
           menu_bar {

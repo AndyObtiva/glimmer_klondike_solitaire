@@ -1,13 +1,14 @@
 require_relative 'playing_card'
-require_relative 'discarding_pile'
 
 class GlimmerKlondikeSolitaire
   module Model
-    class DealingPile
+    class DiscardingPile
       class << self
-        def deal!
-          DiscardingPile.discard!(playing_cards.shift)
+        def discard!(playing_card)
+          playing_cards.push(playing_card)
         end
+        
+        # TODO def grab!
         
         def playing_cards
           @playing_cards ||= []

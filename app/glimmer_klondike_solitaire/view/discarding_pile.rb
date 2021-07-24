@@ -1,8 +1,8 @@
-require 'glimmer_klondike_solitaire/model/dealing_pile'
+require 'glimmer_klondike_solitaire/model/discarding_pile'
 
 class GlimmerKlondikeSolitaire
   module View
-    class DealingPile
+    class DiscardingPile
       include Glimmer::UI::CustomWidget
       
       IMAGE_EMPTY = image(50, 80) {
@@ -35,14 +35,12 @@ class GlimmerKlondikeSolitaire
           background :transparent
           
           image {
-            image <= [Model::DealingPile, 'playing_cards.empty?', on_read: ->(v) {v ? IMAGE_EMPTY : IMAGE_FILLED}]
+            image <= [Model::DiscardingPile, 'playing_cards.empty?', on_read: ->(v) {v ? IMAGE_EMPTY : IMAGE_FILLED}]
             x 0
             y 0
           }
           
-          on_mouse_up do
-            Model::DealingPile.deal!
-          end
+          # add drag event
         }
       }
   

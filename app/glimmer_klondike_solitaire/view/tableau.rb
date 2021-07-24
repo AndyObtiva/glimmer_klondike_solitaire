@@ -1,9 +1,16 @@
 require_relative 'dealing_pile'
+require_relative 'discarding_pile'
+
+require 'glimmer_klondike_solitaire/model/game'
 
 class GlimmerKlondikeSolitaire
   module View
     class Tableau
       include Glimmer::UI::CustomWidget
+      
+      before_body {
+        Model::Game.restart!
+      }
   
       body {
         composite {
@@ -15,8 +22,17 @@ class GlimmerKlondikeSolitaire
 #           foundation_pile(:hearts)
 #           foundation_pile(:clubs)
 #           foundation_pile(:diamonds)
-#           label # filler
-#           discarding_pile
+          label # filler TODO DELETE
+          label # filler TODO DELETE
+          label # filler TODO DELETE
+          label # filler TODO DELETE
+          label # filler
+          discarding_pile {
+            layout_data {
+              width_hint 51
+              height_hint 81
+            }
+          }
           dealing_pile {
             layout_data {
               width_hint 51

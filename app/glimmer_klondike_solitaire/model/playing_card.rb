@@ -2,6 +2,8 @@ class GlimmerKlondikeSolitaire
   module Model
     class PlayingCard
       SUITS = [:spades, :hearts, :clubs, :diamonds]
+      BLACK_SUITS = [:spades, :clubs]
+      RED_SUITS = [:hearts, :diamonds]
       RANK_COUNT = 13
       
       class << self
@@ -27,6 +29,14 @@ class GlimmerKlondikeSolitaire
       def initialize(rank, suit)
         @rank = rank
         @suit = suit
+      end
+      
+      def color
+        if BLACK_SUITS.include?(suit)
+          :black
+        elsif RED_SUITS.include?(suit)
+          :red
+        end
       end
     end
   end

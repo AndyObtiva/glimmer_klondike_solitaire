@@ -14,22 +14,13 @@ class GlimmerKlondikeSolitaire
           }
         }
       }
-      IMAGE_FILLED = image(50, 80) {
-        rectangle(0, 0, 50, 80) {
-          background :dark_green
-          
-          rectangle(0, 0, 49, 79, 15, 15) {
-            background :red
-          }
-        }
-      }
       
       option :game
       
       attr_accessor :current_image
       
       before_body {
-        self.current_image = IMAGE_FILLED
+        self.current_image = IMAGE_EMPTY
       }
   
       body {
@@ -37,7 +28,7 @@ class GlimmerKlondikeSolitaire
           background :transparent
           
           image {
-            image <= [game.dealt_pile, 'playing_cards.empty?', on_read: ->(v) {v ? IMAGE_EMPTY : IMAGE_FILLED}]
+            image <= [game.dealt_pile, 'playing_cards.empty?', on_read: ->(v) {v ? IMAGE_EMPTY : playing_card_image}]
             x 0
             y 0
           }
@@ -45,6 +36,27 @@ class GlimmerKlondikeSolitaire
           # add drag event
         }
       }
+      
+      def playing_card_image
+        playing_card = game.dealt_pile.playing_cards.last
+        
+        image(50, 80) {
+          rectangle(0, 0, 50, 80) {
+            background :dark_green
+            
+            rectangle(0, 0, 49, 79, 15, 15) {
+              background :white
+              
+              text {
+                string <= [game.dealt_pile, 'playing_cards.last', on_read: ->(card) {"#{card.rank} #{card.suit.to_s[0].upcase}" if card}]
+                x :default
+                y :default
+                foreground <= [game.dealt_pile, 'playing_cards.last', on_read: ->(card) {card.color if card}]
+              }
+            }
+          }
+        }
+      end
   
     end
   end

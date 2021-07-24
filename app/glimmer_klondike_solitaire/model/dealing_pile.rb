@@ -17,7 +17,8 @@ class GlimmerKlondikeSolitaire
       end
 
       def deal!
-        @game.dealt_pile.push!(playing_cards.shift)
+        playing_card = playing_cards.shift
+        @game.dealt_pile.push!(playing_card) unless playing_card.nil?
       end
       
       def playing_cards

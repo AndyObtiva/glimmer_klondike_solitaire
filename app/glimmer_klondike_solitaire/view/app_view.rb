@@ -39,21 +39,21 @@ class GlimmerKlondikeSolitaire
       ## Top-most widget must be a shell or another custom shell
       #
       body {
-        shell {
+        shell(:no_resize) {
           row_layout(:vertical) {
             fill true
             center true
           }
-          minimum_size 420, 320
-          image File.join(APP_ROOT, 'package', 'windows', "Glimmer Klondike Solitaire.ico") if OS.windows?
+          minimum_size 400, 400
+          image File.join(APP_ROOT, 'package', 'linux', "Glimmer Klondike Solitaire.png")
           text "Glimmer Klondike Solitaire"
           background :dark_green
         
           action_panel(game: @game)
           tableau(game: @game) {
             layout_data {
-              width 420
-              height 240
+              width 380
+              height 300
             }
           }
           

@@ -3,7 +3,7 @@ require 'glimmer_klondike_solitaire/model/column_pile'
 class GlimmerKlondikeSolitaire
   module View
     class ColumnPile
-      include Glimmer::UI::CustomWidget
+      include Glimmer::UI::CustomShape
   
       IMAGE_EMPTY = image(50, 80) {
         rectangle(0, 0, 50, 80) {
@@ -15,7 +15,7 @@ class GlimmerKlondikeSolitaire
         }
       }
       
-      options :game, :count
+      options :pile_x, :pile_y, :game, :count
       
       attr_accessor :current_image
       
@@ -31,7 +31,7 @@ class GlimmerKlondikeSolitaire
       }
       
       body {
-        canvas {
+        shape(pile_x, pile_y) {
           background :transparent
         }
       }
@@ -48,8 +48,8 @@ class GlimmerKlondikeSolitaire
                 
                 text {
                   string card ? "#{card.rank} #{card.suit.to_s[0].upcase}" : ''
-                  x 0
-                  y 0
+                  x 5
+                  y 5
                   foreground card.color if card
                 }
               }

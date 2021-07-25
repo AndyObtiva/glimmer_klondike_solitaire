@@ -1,6 +1,7 @@
 require_relative 'dealing_pile'
 require_relative 'dealt_pile'
 require_relative 'column_pile'
+require_relative 'foundation_pile'
 
 require 'glimmer_klondike_solitaire/model/game'
 
@@ -17,14 +18,18 @@ class GlimmerKlondikeSolitaire
           background :dark_green
           
           # row 1
-#           foundation_pile(:spades)
-#           foundation_pile(:hearts)
-#           foundation_pile(:clubs)
-#           foundation_pile(:diamonds)
-          label # filler TODO DELETE
-          label # filler TODO DELETE
-          label # filler TODO DELETE
-          label # filler TODO DELETE
+          foundation_pile(game: game, suit: :spades) {
+            playing_card_layout_data
+          }
+          foundation_pile(game: game, suit: :hearts) {
+            playing_card_layout_data
+          }
+          foundation_pile(game: game, suit: :clubs) {
+            playing_card_layout_data
+          }
+          foundation_pile(game: game, suit: :diamonds) {
+            playing_card_layout_data
+          }
           label # filler
           dealt_pile(game: game) {
             playing_card_layout_data

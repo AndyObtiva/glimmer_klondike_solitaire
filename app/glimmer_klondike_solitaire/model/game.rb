@@ -9,7 +9,7 @@ class GlimmerKlondikeSolitaire
     class Game
       COLUMN_PILE_COUNT = 7
         
-      attr_reader :deck, :dealing_pile, :dealt_pile, :column_piles
+      attr_reader :deck, :dealing_pile, :dealt_pile, :column_piles, :foundation_piles
       
       def initialize
         @deck = new_deck

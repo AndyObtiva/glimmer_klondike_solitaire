@@ -13,69 +13,49 @@ class GlimmerKlondikeSolitaire
       option :game
       
       body {
-        composite {
-          grid_layout 7, true
+        canvas {
           background :dark_green
           
           # row 1
-          foundation_pile(game: game, suit: :spades) {
-            playing_card_layout_data
-          }
-          foundation_pile(game: game, suit: :hearts) {
-            playing_card_layout_data
-          }
-          foundation_pile(game: game, suit: :clubs) {
-            playing_card_layout_data
-          }
-          foundation_pile(game: game, suit: :diamonds) {
-            playing_card_layout_data
-          }
-          label # filler
-          dealt_pile(game: game) {
-            playing_card_layout_data
-          }
-          dealing_pile(game: game) {
-            playing_card_layout_data
-          }
+          foundation_pile(pile_x: 0, pile_y: 0, game: game, suit: :spades)
+          foundation_pile(pile_x: PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING, pile_y: 0, game: game, suit: :hearts)
+          foundation_pile(pile_x: 2*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING), pile_y: 0, game: game, suit: :clubs)
+          foundation_pile(pile_x: 3*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING), pile_y: 0, game: game, suit: :diamonds)
+          @dealt_pile = dealt_pile(pile_x: 5*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING), pile_y: 0, game: game)
+          @dealing_pile = dealing_pile(pile_x: 6*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING), pile_y: 0, game: game)
           
           # row 2
-          column_pile(game: game, count: 1) {
-            playing_card_column_layout_data
-          }
-          column_pile(game: game, count: 2) {
-            playing_card_column_layout_data
-          }
-          column_pile(game: game, count: 3) {
-            playing_card_column_layout_data
-          }
-          column_pile(game: game, count: 4) {
-            playing_card_column_layout_data
-          }
-          column_pile(game: game, count: 5) {
-            playing_card_column_layout_data
-          }
-          column_pile(game: game, count: 6) {
-            playing_card_column_layout_data
-          }
-          column_pile(game: game, count: 7) {
-            playing_card_column_layout_data
-          }
+#           column_pile(game: game, count: 1) {
+#             playing_card_column_layout_data
+#           }
+#           column_pile(game: game, count: 2) {
+#             playing_card_column_layout_data
+#           }
+#           column_pile(game: game, count: 3) {
+#             playing_card_column_layout_data
+#           }
+#           column_pile(game: game, count: 4) {
+#             playing_card_column_layout_data
+#           }
+#           column_pile(game: game, count: 5) {
+#             playing_card_column_layout_data
+#           }
+#           column_pile(game: game, count: 6) {
+#             playing_card_column_layout_data
+#           }
+#           column_pile(game: game, count: 7) {
+#             playing_card_column_layout_data
+#           }
+
+          on_mouse_up do |event|
+            if @dealing_pile.body_root.include?(event.x, event.y)
+              game.dealing_pile.deal!
+              body_root.redraw
+            end
+          end
         }
       }
   
-      def playing_card_layout_data
-        layout_data {
-          width_hint 51
-          height_hint 81
-        }
-      end
-  
-      def playing_card_column_layout_data
-        layout_data {
-          width_hint 51
-          height_hint 221
-        }
-      end
     end
   end
 end

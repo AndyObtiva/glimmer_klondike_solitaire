@@ -4,7 +4,7 @@ require 'glimmer_klondike_solitaire/model/foundation_pile'
 class GlimmerKlondikeSolitaire
   module View
     class FoundationPile
-      include Glimmer::UI::CustomWidget
+      include Glimmer::UI::CustomShape
       
       IMAGE_EMPTY = image(50, 80) {
         rectangle(0, 0, 50, 80) {
@@ -16,7 +16,7 @@ class GlimmerKlondikeSolitaire
         }
       }
       
-      options :game, :suit
+      options :pile_x, :pile_y, :game, :suit
       
       attr_accessor :current_image
       
@@ -25,7 +25,7 @@ class GlimmerKlondikeSolitaire
       }
   
       body {
-        canvas {
+        shape(pile_x, pile_y) {
           background :transparent
           
           image {

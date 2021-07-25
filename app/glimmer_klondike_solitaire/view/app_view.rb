@@ -41,8 +41,6 @@ class GlimmerKlondikeSolitaire
       body {
         shell {
           row_layout(:vertical) {
-            margin_width 0
-            margin_height 0
             fill true
             center true
           }
@@ -52,7 +50,12 @@ class GlimmerKlondikeSolitaire
           background :dark_green
         
           action_panel(game: @game)
-          tableau(game: @game)
+          tableau(game: @game) {
+            layout_data {
+              width 420
+              height 240
+            }
+          }
           
           menu_bar {
             menu {

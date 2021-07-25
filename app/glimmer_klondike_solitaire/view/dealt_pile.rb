@@ -3,7 +3,7 @@ require 'glimmer_klondike_solitaire/model/dealt_pile'
 class GlimmerKlondikeSolitaire
   module View
     class DealtPile
-      include Glimmer::UI::CustomWidget
+      include Glimmer::UI::CustomShape
       
       IMAGE_EMPTY = image(50, 80) {
         rectangle(0, 0, 50, 80) {
@@ -15,7 +15,7 @@ class GlimmerKlondikeSolitaire
         }
       }
             
-      option :game
+      options :pile_x, :pile_y, :game
       
       attr_accessor :current_image
       
@@ -24,7 +24,7 @@ class GlimmerKlondikeSolitaire
       }
   
       body {
-        canvas {
+        shape(pile_x, pile_y) {
           background :transparent
           
           image {

@@ -1,5 +1,7 @@
 require 'glimmer_klondike_solitaire/model/column_pile'
 
+require_relative 'playing_card'
+
 class GlimmerKlondikeSolitaire
   module View
     class ColumnPile
@@ -40,20 +42,7 @@ class GlimmerKlondikeSolitaire
         body_root.shapes.to_a.each(&:dispose)
         playing_cards.each_with_index do |card, i|
           body_root.content {
-            rectangle(0, i*20, 50, 80) {
-              background :dark_green
-              
-              rectangle(0, 0, 49, 79, 15, 15) {
-                background :white
-                
-                text {
-                  string card ? "#{card.rank} #{card.suit.to_s[0].upcase}" : ''
-                  x 5
-                  y 5
-                  foreground card.color if card
-                }
-              }
-            }
+            playing_card(card_x: 0, card_y: i*20, model: card)
           }
         end
       end

@@ -31,7 +31,6 @@ class GlimmerKlondikeSolitaire
           on_mouse_up do |event|
             if @dealing_pile.body_root.include?(event.x, event.y)
               game.dealing_pile.deal!
-              body_root.redraw
             end
           end
         }

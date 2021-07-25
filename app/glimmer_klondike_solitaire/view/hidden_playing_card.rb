@@ -10,6 +10,9 @@ class GlimmerKlondikeSolitaire
           rectangle(0, 0, 49, 79, 15, 15) {
             background :red
           }
+          rectangle(0, 0, 49, 79, 15, 15) {
+            foreground :black
+          }
         }
       }
   

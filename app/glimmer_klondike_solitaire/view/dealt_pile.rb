@@ -1,6 +1,7 @@
 require 'glimmer_klondike_solitaire/model/dealt_pile'
 
 require_relative 'empty_playing_card'
+require_relative 'playing_card'
 
 class GlimmerKlondikeSolitaire
   module View
@@ -18,7 +19,7 @@ class GlimmerKlondikeSolitaire
             }
           else
             body_root.content {
-              top_playing_card
+              playing_card(model: game.dealt_pile.playing_cards.last)
             }
           end
         end
@@ -32,25 +33,6 @@ class GlimmerKlondikeSolitaire
         }
       }
                                 
-      def top_playing_card
-        playing_card = game.dealt_pile.playing_cards.last
-        
-        rectangle(0, 0, 50, 80) {
-          background :dark_green
-          
-          rectangle(0, 0, 49, 79, 15, 15) {
-            background :white
-            
-            text {
-              string <= [game.dealt_pile, 'playing_cards.last', on_read: ->(card) {"#{card.rank} #{card.suit.to_s[0].upcase}" if card}]
-              x 5
-              y 5
-              foreground <= [game.dealt_pile, 'playing_cards.last', on_read: ->(card) {card.color if card}]
-            }
-          }
-        }
-      end
-  
     end
   end
 end

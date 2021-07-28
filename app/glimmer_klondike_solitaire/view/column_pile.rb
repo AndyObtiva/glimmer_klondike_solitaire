@@ -26,7 +26,7 @@ class GlimmerKlondikeSolitaire
       }
       
       after_body {
-        observe(game.column_piles[count - 1], :playing_cards) do |new_playing_cards|
+        observe(game.column_piles[count - 1], 'playing_cards.to_a') do |new_playing_cards|
           build_column_pile(new_playing_cards)
         end
         build_column_pile(game.column_piles[count - 1].playing_cards)
@@ -35,6 +35,15 @@ class GlimmerKlondikeSolitaire
       body {
         shape(pile_x, pile_y) {
           background :transparent
+
+          on_drop do |drop_event|
+            begin
+              game.column_piles[count - 1].add!(drop_event.dragged_shape.get_data('custom_shape').model)
+              drop_event.dragged_shape.dispose
+            rescue => e
+              drop_event.doit = false
+            end
+          end
         }
       }
   

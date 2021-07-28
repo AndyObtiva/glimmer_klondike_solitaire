@@ -12,13 +12,14 @@ class GlimmerKlondikeSolitaire
       
       def reset!
         playing_cards.clear
-        count.times { playing_cards << @game.deck.pop }
+        populate!(count.times.map { @game.deck.pop })
         notify_observers(:playing_cards)
       end
     
       # this method does not validate
-      def push!(new_playing_cards)
-        new_playing_cards.each do |playing_card|
+      def populate!(new_playing_cards)
+        new_playing_cards.each_with_index do |playing_card, index|
+          playing_card.hidden = true if index < (new_playing_cards.size - 1)
           playing_cards.push(playing_card)
         end
       end

@@ -53,7 +53,7 @@ class GlimmerKlondikeSolitaire
         playing_cards.each_with_index do |card, i|
           body_root.content {
             playing_card(card_x: 0, card_y: i*20, model: card) {
-              drag_source true
+              drag_source true unless card.hidden?
             }
           }
         end

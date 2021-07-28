@@ -25,10 +25,13 @@ class GlimmerKlondikeSolitaire
       end
       
       attr_reader :rank, :suit
+      attr_accessor :hidden
+      alias hidden? hidden
       
-      def initialize(rank, suit)
+      def initialize(rank, suit, hidden = false)
         @rank = rank
         @suit = suit
+        @hidden = hidden
       end
       
       def color

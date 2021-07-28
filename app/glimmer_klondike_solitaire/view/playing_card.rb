@@ -12,19 +12,21 @@ class GlimmerKlondikeSolitaire
   
       body {
         rectangle(card_x, card_y, 49, 79, 15, 15) {
-          background :white
+          background model.hidden ? :red : :white
           
           # border
           rectangle(0, 0, 49, 79, 15, 15) {
             foreground :black
           }
           
-          text {
-            string model ? "#{model.rank} #{model.suit.to_s[0].upcase}" : ""
-            x 5
-            y 5
-            foreground model ? model.color : :transparent
-          }
+          unless model.hidden?
+            text {
+              string model ? "#{model.rank} #{model.suit.to_s[0].upcase}" : ""
+              x 5
+              y 5
+              foreground model ? model.color : :transparent
+            }
+          end
         }
       }
   

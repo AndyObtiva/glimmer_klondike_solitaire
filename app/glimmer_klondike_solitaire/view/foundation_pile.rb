@@ -6,57 +6,49 @@ class GlimmerKlondikeSolitaire
     class FoundationPile
       include Glimmer::UI::CustomShape
       
-      IMAGE_EMPTY = image(50, 80) {
-        rectangle(0, 0, 50, 80) {
-          background :dark_green
-          
-          rectangle(0, 0, 49, 79, 15, 15) {
-            foreground :gray
-          }
-        }
-      }
-      
       options :pile_x, :pile_y, :game, :suit
       
-      attr_accessor :current_image
+      attr_accessor :current_image, :model
       
       before_body {
-        self.current_image = IMAGE_EMPTY
+        self.current_image = image(50, 80) {empty_playing_card(suit: suit)}
+        self.model = game.foundation_piles[Model::PlayingCard::SUITS.index(suit)]
       }
   
+      after_body {
+        observe(model, 'playing_cards.last') do |last_card|
+          if last_card
+            body_root.content {
+              playing_card(model: last_card)
+            }
+          end
+        end
+      }
+      
       body {
         shape(pile_x, pile_y) {
           background :transparent
           
-          image {
-            image <= [game.foundation_piles[Model::PlayingCard::SUITS.index(suit)], 'playing_cards.empty?', on_read: ->(v) {v ? IMAGE_EMPTY : playing_card_image}]
-            x 0
-            y 0
-          }
+          empty_playing_card(suit: suit)
+          
+          on_drop do |drop_event|
+            begin
+              card_shape = drop_event.dragged_shape.get_data('custom_shape')
+              card = card_shape.model
+              model.add!(card)
+              card_parent_shape = card_shape.parent.get_data('custom_shape')
+              card_source_model = card_shape.parent.get_data('custom_shape').model
+              card_source_model.remove!(card)
+              drop_event.dragged_shape.dispose
+            rescue => e
+#               pd e
+              drop_event.doit = false
+            end
+          end
         }
       }
-      
-      def playing_card_image
-        playing_card = game.foundation_piles[Model::PlayingCard::SUITS.index(suit)].playing_cards.last
-        
-        image(50, 80) {
-          rectangle(0, 0, 50, 80) {
-            background :dark_green
-            
-            rectangle(0, 0, 49, 79, 15, 15) {
-              background :white
-              
-              text {
-                string <= [game.foundation_piles[Model::PlayingCard::SUITS.index(suit)], 'playing_cards.last', on_read: ->(card) {"#{card.rank} #{card.suit.to_s[0].upcase}" if card}]
-                x 0
-                y 0
-                foreground <= [game.foundation_piles[Model::PlayingCard::SUITS.index(suit)], 'playing_cards.last', on_read: ->(card) {card.color if card}]
-              }
-            }
-          }
-        }
-      end
-  
     end
+    
   end
+  
 end

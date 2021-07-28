@@ -8,10 +8,10 @@ class GlimmerKlondikeSolitaire
     class DealingPile
       include Glimmer::UI::CustomShape
       
-      options :pile_x, :pile_y, :game
+      options :pile_x, :pile_y, :model
       
       after_body {
-        observe(game.dealing_pile, 'playing_cards.empty?') do |empty_value|
+        observe(model, 'playing_cards.empty?') do |empty_value|
           body_root.shapes.to_a.each(&:dispose)
           if empty_value
             body_root.content {

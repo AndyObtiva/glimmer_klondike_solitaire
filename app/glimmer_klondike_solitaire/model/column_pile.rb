@@ -27,11 +27,17 @@ class GlimmerKlondikeSolitaire
       # throws an error if it does not fit
       def add!(new_playing_card)
         bottom_card = playing_cards.last
-        if new_playing_card.color != bottom_card.color && new_playing_card.rank == (bottom_card.rank - 1)
+        # TODO handle the empty cards can take a king case
+        if (playing_cards.empty? && new_playing_card.rank == 13) ||
+            (new_playing_card.color != bottom_card.color && new_playing_card.rank == (bottom_card.rank - 1))
           playing_cards.push(new_playing_card)
         else
-          raise "Cannot add card #{new_playing_card} to column pile #{self}"
+          raise "Cannot add #{new_playing_card} to #{self}"
         end
+      end
+      
+      def remove!(card)
+        remove_cards_starting_at(playing_cards.index(card))
       end
       
       def remove_cards_starting_at(index)
@@ -42,6 +48,10 @@ class GlimmerKlondikeSolitaire
       
       def playing_cards
         @playing_cards ||= []
+      end
+      
+      def to_s
+        "Column Pile #{count} (#{playing_cards.map {|card| "#{card.rank}#{card.suit.to_s[0].upcase}"}.join(" | ")})"
       end
     end
   end

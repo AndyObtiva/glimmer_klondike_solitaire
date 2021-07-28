@@ -13,8 +13,8 @@ class GlimmerKlondikeSolitaire
         playing_cards.push(playing_card)
       end
       
-      def pop!
-        playing_cards.pop
+      def remove!(card)
+        playing_cards.delete(card)
       end
       
       def playing_cards

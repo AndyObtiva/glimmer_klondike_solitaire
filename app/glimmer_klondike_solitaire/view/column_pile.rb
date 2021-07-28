@@ -17,30 +17,30 @@ class GlimmerKlondikeSolitaire
         }
       }
       
-      options :pile_x, :pile_y, :game, :count
-      
-      attr_accessor :current_image
-      
-      before_body {
-        self.current_image = IMAGE_EMPTY
-      }
+      options :pile_x, :pile_y, :model
       
       after_body {
-        observe(game.column_piles[count - 1], 'playing_cards.to_a') do |new_playing_cards|
+        observe(model, 'playing_cards.to_a') do |new_playing_cards|
           build_column_pile(new_playing_cards)
         end
-        build_column_pile(game.column_piles[count - 1].playing_cards)
+        build_column_pile(model.playing_cards)
       }
       
       body {
         shape(pile_x, pile_y) {
           background :transparent
-
+          
           on_drop do |drop_event|
             begin
-              game.column_piles[count - 1].add!(drop_event.dragged_shape.get_data('custom_shape').model)
+              card_shape = drop_event.dragged_shape.get_data('custom_shape')
+              card = card_shape.model
+              model.add!(card)
+              card_parent_shape = card_shape.parent.get_data('custom_shape')
+              card_source_model = card_shape.parent.get_data('custom_shape').model
+              card_source_model.remove!(card)
               drop_event.dragged_shape.dispose
             rescue => e
+#               pd e
               drop_event.doit = false
             end
           end
@@ -49,9 +49,12 @@ class GlimmerKlondikeSolitaire
   
       def build_column_pile(playing_cards)
         body_root.shapes.to_a.each(&:dispose)
+        # TODO nest cards within each other so they'd carry each other in drag & drop
         playing_cards.each_with_index do |card, i|
           body_root.content {
-            playing_card(card_x: 0, card_y: i*20, model: card)
+            playing_card(card_x: 0, card_y: i*20, model: card) {
+              drag_source true
+            }
           }
         end
       end

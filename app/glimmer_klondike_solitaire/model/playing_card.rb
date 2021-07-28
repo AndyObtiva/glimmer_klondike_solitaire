@@ -38,6 +38,10 @@ class GlimmerKlondikeSolitaire
           :red
         end
       end
+      
+      def to_s
+        "Playing Card #{rank}#{suit.to_s[0].upcase}"
+      end
     end
   end
 end

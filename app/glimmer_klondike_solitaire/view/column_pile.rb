@@ -28,8 +28,6 @@ class GlimmerKlondikeSolitaire
       
       body {
         shape(pile_x, pile_y) {
-          background :transparent
-          
           on_drop do |drop_event|
             begin
               card_shape = drop_event.dragged_shape.get_data('custom_shape')

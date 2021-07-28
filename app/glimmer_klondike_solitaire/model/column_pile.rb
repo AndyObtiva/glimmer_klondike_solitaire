@@ -39,6 +39,8 @@ class GlimmerKlondikeSolitaire
       
       def remove!(card)
         remove_cards_starting_at(playing_cards.index(card))
+        playing_cards.last&.hidden = false
+        notify_observers('playing_cards')
       end
       
       def remove_cards_starting_at(index)

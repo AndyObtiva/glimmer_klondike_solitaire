@@ -27,8 +27,6 @@ class GlimmerKlondikeSolitaire
   
       body {
         shape(pile_x, pile_y) {
-          background :transparent
-          
           hidden_playing_card
         }
       }

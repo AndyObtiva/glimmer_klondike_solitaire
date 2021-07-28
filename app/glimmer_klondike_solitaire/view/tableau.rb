@@ -27,7 +27,7 @@ class GlimmerKlondikeSolitaire
           @column_piles = 7.times.map do |n|
             column_pile(pile_x: n*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING), pile_y: PLAYING_CARD_HEIGHT + PLAYING_CARD_SPACING, game: game, count: n + 1)
           end
-
+          
           on_mouse_up do |event|
             if @dealing_pile.body_root.include?(event.x, event.y)
               game.dealing_pile.deal!

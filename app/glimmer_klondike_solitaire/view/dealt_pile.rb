@@ -12,14 +12,16 @@ class GlimmerKlondikeSolitaire
       
       after_body do
         observe(game.dealt_pile, 'playing_cards.empty?') do |empty_value|
-          body_root.shapes.to_a.each(&:dispose)
           if empty_value
+            body_root.shapes.to_a.each(&:dispose)
             body_root.content {
               empty_playing_card
             }
           else
             body_root.content {
-              playing_card(model: game.dealt_pile.playing_cards.last)
+              playing_card(model: game.dealt_pile.playing_cards.last) {
+                drag_source true
+              }
             }
           end
         end

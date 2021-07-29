@@ -7,16 +7,6 @@ class GlimmerKlondikeSolitaire
     class ColumnPile
       include Glimmer::UI::CustomShape
   
-      IMAGE_EMPTY = image(50, 80) {
-        rectangle(0, 0, 50, 80) {
-          background :dark_green
-          
-          rectangle(0, 0, 49, 79, 15, 15) {
-            foreground :gray
-          }
-        }
-      }
-      
       options :pile_x, :pile_y, :model
       
       after_body {
@@ -55,7 +45,7 @@ class GlimmerKlondikeSolitaire
         current_parent = body_root
         playing_cards.each_with_index do |card, i|
           current_parent.content {
-            current_parent = playing_card(card_x: 0, card_y: 20, model: card, parent_pile: self) {
+            current_parent = playing_card(card_x: 0, card_y: 30, model: card, parent_pile: self) {
               drag_source true unless card.hidden?
             }.body_root
           }

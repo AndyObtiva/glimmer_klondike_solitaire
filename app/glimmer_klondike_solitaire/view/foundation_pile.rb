@@ -11,7 +11,7 @@ class GlimmerKlondikeSolitaire
       attr_accessor :current_image, :model
       
       before_body {
-        self.current_image = image(50, 80) {empty_playing_card(suit: suit)}
+        self.current_image = image(PLAYING_CARD_WIDTH, PLAYING_CARD_HEIGHT) {empty_playing_card(suit: suit)}
         self.model = game.foundation_piles[Model::PlayingCard::SUITS.index(suit)]
       }
   

@@ -6,15 +6,16 @@ class GlimmerKlondikeSolitaire
       option :suit
   
       body {
-        rectangle(0, 0, 49, 79, 15, 15) {
+        rectangle(0, 0, PLAYING_CARD_WIDTH - 2, PLAYING_CARD_HEIGHT - 2, 15, 15) {
           foreground :gray
           
           if suit
             text {
-              string suit.to_s[0].upcase
+              string suit.to_s.capitalize
               x :default
               y :default
               is_transparent true
+              foreground [:spades, :clubs].include?(suit) ? :black : :red
             }
           end
         }

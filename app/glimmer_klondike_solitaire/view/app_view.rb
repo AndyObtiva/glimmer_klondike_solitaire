@@ -6,15 +6,6 @@ class GlimmerKlondikeSolitaire
     class AppView
       include Glimmer::UI::CustomShell
     
-      ## Add options like the following to configure CustomShell by outside consumers
-      #
-      # options :title, :background_color
-      # option :width, default: 320
-      # option :height, default: 240
-  
-      ## Use before_body block to pre-initialize variables to use in body
-      #
-      #
       before_body {
         @game = Model::Game.new
         Display.app_name = 'Glimmer Klondike Solitaire'
@@ -29,22 +20,15 @@ class GlimmerKlondikeSolitaire
         }
       }
   
-      ## Use after_body block to setup observers for widgets in body
-      #
-      # after_body {
-      #
-      # }
-  
-      ## Add widget content inside custom shell body
-      ## Top-most widget must be a shell or another custom shell
-      #
       body {
         shell(:no_resize) {
           row_layout(:vertical) {
             fill true
             center true
+            margin_width 0
+            margin_height 0
           }
-          minimum_size 400, 400
+          minimum_size 2*PLAYING_CARD_MARGIN + 7*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING) - 5, 700
           image File.join(APP_ROOT, 'package', 'linux', "Glimmer Klondike Solitaire.png")
           text "Glimmer Klondike Solitaire"
           background :dark_green
@@ -52,24 +36,35 @@ class GlimmerKlondikeSolitaire
           action_panel(game: @game)
           tableau(game: @game) {
             layout_data {
-              width 380
-              height 300
+              width 2*PLAYING_CARD_MARGIN + 7*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING) - 5
+              height 700
             }
           }
           
           menu_bar {
             menu {
-              text '&File'
+              text '&Game'
+              menu_item {
+                text '&Restart'
+                accelerator OS.mac? ? :command : :ctrl, :r
+                on_widget_selected {
+                  @game.restart!
+                }
+              }
+              menu_item {
+                text 'E&xit'
+                accelerator :alt, :f4
+                on_widget_selected {
+                  exit(0)
+                }
+              }
+            }
+            menu {
+              text '&Help'
               menu_item {
                 text '&About...'
                 on_widget_selected {
                   display_about_dialog
-                }
-              }
-              menu_item {
-                text '&Preferences...'
-                on_widget_selected {
-                  display_preferences_dialog
                 }
               }
             }
@@ -84,38 +79,6 @@ class GlimmerKlondikeSolitaire
         }.open
       end
       
-      def display_preferences_dialog
-        dialog(swt_widget) {
-          text 'Preferences'
-          grid_layout {
-            margin_height 5
-            margin_width 5
-          }
-          group {
-            row_layout {
-              type :vertical
-              spacing 10
-            }
-            text 'Greeting'
-            font style: :bold
-            [
-              'Hello, World!',
-              'Howdy, Partner!'
-            ].each do |greeting_text|
-              button(:radio) {
-                text greeting_text
-                selection <= [self, :greeting, on_read: ->(g) { g == greeting_text }]
-                layout_data {
-                  width 160
-                }
-                on_widget_selected { |event|
-                  self.greeting = event.widget.getText
-                }
-              }
-            end
-          }
-        }.open
-      end
     end
   end
 end

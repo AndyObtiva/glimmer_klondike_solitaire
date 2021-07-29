@@ -8,25 +8,15 @@ class GlimmerKlondikeSolitaire
       before_body {
         self.card_x ||= 0
         self.card_y ||= 0
+        
+        @image_file = File.join(APP_ROOT, 'images', 'resized', model.hidden ? "BACK.png" : "#{model.rank}#{model.suit.to_s[0].upcase}.png")
       }
   
       body {
-        rectangle(card_x, card_y, 49, 79, 15, 15) {
-          background model.hidden ? :red : :white
-          
-          # border
-          rectangle(0, 0, 49, 79, 15, 15) {
-            foreground :black
-          }
-          
-          unless model.hidden?
-            text {
-              string model ? "#{model.rank} #{model.suit.to_s[0].upcase}" : ""
-              x 5
-              y 5
-              foreground model ? model.color : :transparent
-            }
-          end
+        image {
+          image @image_file
+          x card_x
+          y card_y
         }
       }
   

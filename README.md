@@ -1,6 +1,6 @@
-glimmer_klondike_solitaire===================
+# Glimmer Klondike Solitaire
 
-Description goes here.
+Klondike Solitaire built with Glimmer DSL for SWT
 
 Contributing to glimmer_klondike_solitaire
 ------------------------------------------
@@ -22,5 +22,6 @@ Contributing to glimmer_klondike_solitaire
 Copyright
 ---------
 
-Copyright (c) 2021 Andy Maleh. See
-LICENSE.txt for further details.
+[MIT](LICENSE.txt)
+
+Copyright (c) 2021 Andy Maleh

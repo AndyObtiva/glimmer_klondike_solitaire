@@ -8,13 +8,15 @@ rescue
   require 'glimmer-dsl-swt'
   # add more gems if needed
 end
-require 'glimmer_klondike_solitaire/view/app_view'
 
 class GlimmerKlondikeSolitaire
   APP_ROOT = File.expand_path('../..', __FILE__)
   VERSION = File.read(File.join(APP_ROOT, 'VERSION'))
   LICENSE = File.read(File.join(APP_ROOT, 'LICENSE.txt'))
-  PLAYING_CARD_WIDTH = 50
-  PLAYING_CARD_HEIGHT = 80
-  PLAYING_CARD_SPACING = 5
+  PLAYING_CARD_MARGIN = 15
+  PLAYING_CARD_WIDTH = 106
+  PLAYING_CARD_HEIGHT = 162
+  PLAYING_CARD_SPACING = 10
 end
+
+require 'glimmer_klondike_solitaire/view/app_view'

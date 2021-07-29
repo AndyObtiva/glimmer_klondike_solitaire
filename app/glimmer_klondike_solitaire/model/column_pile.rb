@@ -28,7 +28,6 @@ class GlimmerKlondikeSolitaire
       # throws an error if it does not fit
       def add!(new_playing_card)
         bottom_card = playing_cards.last
-        # TODO handle the empty cards can take a king case
         if (playing_cards.empty? && new_playing_card.rank == 13) ||
             (new_playing_card.color != bottom_card.color && new_playing_card.rank == (bottom_card.rank - 1))
           playing_cards.push(new_playing_card)
@@ -40,7 +39,6 @@ class GlimmerKlondikeSolitaire
       def remove!(card)
         remove_cards_starting_at(playing_cards.index(card))
         playing_cards.last&.hidden = false
-        notify_observers('playing_cards')
       end
       
       def remove_cards_starting_at(index)

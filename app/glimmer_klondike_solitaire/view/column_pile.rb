@@ -47,6 +47,7 @@ class GlimmerKlondikeSolitaire
       def build_column_pile(playing_cards)
         body_root.shapes.to_a.each(&:dispose)
         # TODO nest cards within each other so they'd carry each other in drag & drop
+    
         playing_cards.each_with_index do |card, i|
           body_root.content {
             playing_card(card_x: 0, card_y: i*20, model: card) {

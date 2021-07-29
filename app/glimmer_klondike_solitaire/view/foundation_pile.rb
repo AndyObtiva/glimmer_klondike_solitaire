@@ -21,6 +21,11 @@ class GlimmerKlondikeSolitaire
             body_root.content {
               playing_card(model: last_card)
             }
+          else
+            body_root.clear_shapes
+            body_root.content {
+              empty_playing_card(suit: suit)
+            }
           end
         end
       }

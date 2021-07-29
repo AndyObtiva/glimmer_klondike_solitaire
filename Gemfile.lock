@@ -154,7 +154,7 @@ PLATFORMS
   universal-java-1.8
 
 DEPENDENCIES
-  glimmer-dsl-swt (~> 4.20.13.4)
+  glimmer-dsl-swt (~> 4.20.13.5)
   juwelier (= 2.4.9)
   rspec (~> 3.5.0)
   simplecov

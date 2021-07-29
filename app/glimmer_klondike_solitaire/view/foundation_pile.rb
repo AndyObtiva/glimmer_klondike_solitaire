@@ -36,14 +36,17 @@ class GlimmerKlondikeSolitaire
           
           on_drop do |drop_event|
             begin
+              # TODO make sure one cannot drag a column pile of cards here
               card_shape = drop_event.dragged_shape.get_data('custom_shape')
               card = card_shape.model
+              card_parent_pile = card_shape.parent_pile
+              card_source_model = card_parent_pile.model
+              raise 'Cannot accept multiple cards' if card_source_model.playing_cards.index(card) != (card_source_model.playing_cards.size - 1)
               model.add!(card)
-              card_parent_shape = card_shape.parent.get_data('custom_shape')
-              card_source_model = card_shape.parent.get_data('custom_shape').model
               card_source_model.remove!(card)
               drop_event.dragged_shape.dispose
             rescue => e
+#               pd e
               drop_event.doit = false
             end
           end

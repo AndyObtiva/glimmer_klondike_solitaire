@@ -3,7 +3,7 @@ class GlimmerKlondikeSolitaire
     class PlayingCard
       include Glimmer::UI::CustomShape
   
-      options :card_x, :card_y, :model
+      options :card_x, :card_y, :model, :parent_pile
       
       before_body {
         self.card_x ||= 0

@@ -37,8 +37,9 @@ class GlimmerKlondikeSolitaire
       end
       
       def remove!(card)
-        remove_cards_starting_at(playing_cards.index(card))
-        playing_cards.last&.hidden = false
+        remove_cards_starting_at(playing_cards.index(card)).tap do |result|
+          playing_cards.last&.hidden = false
+        end
       end
       
       def remove_cards_starting_at(index)

@@ -19,7 +19,7 @@ class GlimmerKlondikeSolitaire
             }
           else
             body_root.content {
-              playing_card(model: model.playing_cards.last) {
+              playing_card(model: model.playing_cards.last, parent_pile: self) {
                 drag_source true
               }
             }

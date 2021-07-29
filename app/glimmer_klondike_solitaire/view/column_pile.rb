@@ -20,8 +20,8 @@ class GlimmerKlondikeSolitaire
       options :pile_x, :pile_y, :model
       
       after_body {
-        observe(model, 'playing_cards.to_a') do |new_playing_cards|
-          build_column_pile(new_playing_cards)
+        observe(model, 'playing_cards.last.hidden') do
+          build_column_pile(model.playing_cards)
         end
         build_column_pile(model.playing_cards)
       }
@@ -38,7 +38,6 @@ class GlimmerKlondikeSolitaire
               card_source_model.remove!(card)
               drop_event.dragged_shape.dispose
             rescue => e
-#               pd e
               drop_event.doit = false
             end
           end

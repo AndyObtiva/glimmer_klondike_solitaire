@@ -39,7 +39,6 @@ class GlimmerKlondikeSolitaire
               card_source_model.remove!(card)
               drop_event.dragged_shape.dispose
             rescue => e
-#               pd e
               drop_event.doit = false
             end
           end

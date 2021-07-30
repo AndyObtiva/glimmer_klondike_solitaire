@@ -1,6 +1,10 @@
 # Glimmer Klondike Solitaire
 
-Klondike Solitaire built with Glimmer DSL for SWT
+## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
+
+[Glimmer DSL for SWT](https://github.com/AndyObtiva/glimmer-dsl-swt) External Sample.
+
+![Klondike Solitaire Screenshot](/images/glimmer-klondike-soliatire.png)
 
 Contributing to glimmer_klondike_solitaire
 ------------------------------------------
@@ -25,3 +29,7 @@ Copyright
 [MIT](LICENSE.txt)
 
 Copyright (c) 2021 Andy Maleh
+
+--
+
+[<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 />](https://github.com/AndyObtiva/glimmer) Built with [Glimmer](https://github.com/AndyObtiva/glimmer)

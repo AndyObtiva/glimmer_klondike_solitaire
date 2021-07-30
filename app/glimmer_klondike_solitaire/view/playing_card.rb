@@ -9,12 +9,12 @@ class GlimmerKlondikeSolitaire
         self.card_x ||= 0
         self.card_y ||= 0
         
-        @image_file = File.join(APP_ROOT, 'images', 'resized', model.hidden ? "BACK.png" : "#{model.rank}#{model.suit.to_s[0].upcase}.png")
+        @image = IMAGES[model.suit][model.rank]
       }
   
       body {
         image {
-          image @image_file
+          image model.hidden ? IMAGE_BACK : @image
           x card_x
           y card_y
         }

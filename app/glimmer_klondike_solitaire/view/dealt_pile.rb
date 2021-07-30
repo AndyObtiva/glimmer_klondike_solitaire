@@ -13,7 +13,7 @@ class GlimmerKlondikeSolitaire
       after_body do
         observe(model, 'playing_cards.empty?') do |empty_value|
           if empty_value
-            body_root.shapes.to_a.dup.each(&:dispose)
+            body_root.shapes.to_a.dup.each {|shape| shape.dispose(dispose_images: false)}
             body_root.content {
               empty_playing_card
             }

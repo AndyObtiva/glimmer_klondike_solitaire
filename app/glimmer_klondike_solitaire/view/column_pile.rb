@@ -31,7 +31,7 @@ class GlimmerKlondikeSolitaire
                   model.add!(card)
                 end
               end
-              drop_event.dragged_shape.dispose
+              drop_event.dragged_shape.dispose(dispose_images: false)
             rescue => e
 #               pd e
               drop_event.doit = false
@@ -41,7 +41,7 @@ class GlimmerKlondikeSolitaire
       }
   
       def build_column_pile(playing_cards)
-        body_root.shapes.to_a.each(&:dispose)
+        body_root.shapes.to_a.dup.each {|shape| shape.dispose(dispose_images: false)}
         current_parent = body_root
         playing_cards.each_with_index do |card, i|
           current_parent.content {

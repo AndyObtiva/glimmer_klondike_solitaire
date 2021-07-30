@@ -22,7 +22,7 @@ class GlimmerKlondikeSolitaire
               playing_card(model: last_card)
             }
           else
-            body_root.clear_shapes
+            body_root.shapes.to_a.dup.each {|shape| shape.dispose(dispose_images: false)}
             body_root.content {
               empty_playing_card(suit: suit)
             }
@@ -44,7 +44,7 @@ class GlimmerKlondikeSolitaire
               raise 'Cannot accept multiple cards' if card_source_model.playing_cards.index(card) != (card_source_model.playing_cards.size - 1)
               model.add!(card)
               card_source_model.remove!(card)
-              drop_event.dragged_shape.dispose
+              drop_event.dragged_shape.dispose(dispose_images: false)
             rescue => e
 #               pd e
               drop_event.doit = false

@@ -10,8 +10,10 @@ class GlimmerKlondikeSolitaire
       body {
         composite {
           grid_layout(1, false) {
-            margin_width 0
+            margin_width 10
             margin_height 0
+            margin_top 10
+            margin_bottom 5
           }
           
           background :dark_green

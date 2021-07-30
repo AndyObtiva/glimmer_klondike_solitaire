@@ -8,13 +8,11 @@ class GlimmerKlondikeSolitaire
       before_body {
         self.card_x ||= 0
         self.card_y ||= 0
-        
-        @image = IMAGES[model.suit][model.rank]
       }
   
       body {
         image {
-          image model.hidden ? IMAGE_BACK : @image
+          image model.hidden ? IMAGE_BACK : IMAGES[model.suit][model.rank]
           x card_x
           y card_y
         }

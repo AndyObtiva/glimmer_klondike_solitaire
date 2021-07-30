@@ -21,14 +21,14 @@ class GlimmerKlondikeSolitaire
       }
   
       body {
-        shell(:no_resize) {
+        shell {
           row_layout(:vertical) {
             fill true
             center true
             margin_width 0
             margin_height 0
           }
-          minimum_size 2*PLAYING_CARD_MARGIN + 7*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING) - 5, 700
+          minimum_size 2*PLAYING_CARD_MARGIN + 7*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING) - PLAYING_CARD_SPACING, 700 + PLAYING_CARD_MARGIN
           image File.join(APP_ROOT, 'package', 'linux', "Glimmer Klondike Solitaire.png")
           text "Glimmer Klondike Solitaire"
           background :dark_green
@@ -36,8 +36,8 @@ class GlimmerKlondikeSolitaire
           action_panel(game: @game)
           tableau(game: @game) {
             layout_data {
-              width 2*PLAYING_CARD_MARGIN + 7*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING) - 5
-              height 700
+              width 2*PLAYING_CARD_MARGIN + 7*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING) - PLAYING_CARD_SPACING
+              height 700 + PLAYING_CARD_MARGIN
             }
           }
           

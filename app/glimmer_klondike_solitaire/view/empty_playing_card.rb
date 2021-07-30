@@ -3,10 +3,15 @@ class GlimmerKlondikeSolitaire
     class EmptyPlayingCard
       include Glimmer::UI::CustomShape
       
-      option :suit
+      options :card_x, :card_y, :suit
   
+      before_body {
+        self.card_x ||= 0
+        self.card_y ||= 0
+      }
+      
       body {
-        rectangle(0, 0, PLAYING_CARD_WIDTH - 2, PLAYING_CARD_HEIGHT - 2, 15, 15) {
+        rectangle(card_x, card_y, PLAYING_CARD_WIDTH - 2, PLAYING_CARD_HEIGHT - 2, 15, 15) {
           foreground :gray
           
           if suit
@@ -15,7 +20,8 @@ class GlimmerKlondikeSolitaire
               x :default
               y :default
               is_transparent true
-              foreground [:spades, :clubs].include?(suit) ? :black : :red
+              foreground [:spades, :clubs].include?(suit) ? :black : rgb(206, 35, 21)
+              font height: 16, style: :bold
             }
           end
         }

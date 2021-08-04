@@ -16,16 +16,29 @@ class GlimmerKlondikeSolitaire
           
           if suit
             text {
-              string suit.to_s.capitalize
+              string suit_text(suit)
               x :default
               y :default
               is_transparent true
               foreground [:spades, :clubs].include?(suit) ? :black : rgb(206, 35, 21)
-              font height: 16, style: :bold
+              font height: 35
             }
           end
         }
       }
+      
+      def suit_text(suit)
+        case suit
+        when :spades
+          "♤"
+        when :hearts
+          "♡"
+        when :clubs
+          "♧"
+        when :diamonds
+          "♢"
+        end
+      end
   
     end
   end

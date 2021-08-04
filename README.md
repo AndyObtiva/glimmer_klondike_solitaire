@@ -8,7 +8,7 @@
 
 Note: this was built in one week only and currently suffers from performance issues, but is fully playable otherwise.
 
-<img alt="Glimmer Klondike Solitaire Icon" src="https://raw.githubusercontent.com/AndyObtiva/glimmer_klondike_solitaire/master/package/linux/Glimmer%20Klondike%20Solitaire.png" height=40 /> [Download v1.0.0 for the Mac (x64 Big Sur and older)](https://www.dropbox.com/s/0hnkzu8mwqymbh4/Glimmer%20Klondike%20Solitaire-1.0.0.dmg?dl=1)
+<img alt="Glimmer Klondike Solitaire Icon" src="https://raw.githubusercontent.com/AndyObtiva/glimmer_klondike_solitaire/master/package/linux/Glimmer%20Klondike%20Solitaire.png" height=40 /> [Download v1.0.1 for the Mac (x64 Big Sur and older)](https://www.dropbox.com/s/h6ntl5wma1xs6bz/Glimmer%20Klondike%20Solitaire-1.0.1.dmg?dl=1)
 
 Contributing to glimmer_klondike_solitaire
 ------------------------------------------

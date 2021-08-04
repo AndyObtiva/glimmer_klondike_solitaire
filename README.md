@@ -1,12 +1,11 @@
 # <img alt="Glimmer Tetris Icon" src="https://raw.githubusercontent.com/AndyObtiva/glimmer_klondike_solitaire/master/package/linux/Glimmer%20Klondike%20Solitaire.png" height=85 /> Glimmer Klondike Solitaire
 
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
+[![Gem Version](https://badge.fury.io/rb/glimmer_klondike_solitaire.svg)](http://badge.fury.io/rb/glimmer_klondike_solitaire)
 
 [Glimmer DSL for SWT](https://github.com/AndyObtiva/glimmer-dsl-swt) External Sample.
 
-![Klondike Solitaire Screenshot](/images/glimmer-klondike-soliatire.png)
-
-Note: this was built in one week only and currently suffers from performance issues, but is fully playable otherwise.
+![Klondike Solitaire Screenshot](/images/glimmer-klondike-solitaire.png)
 
 <img alt="Glimmer Klondike Solitaire Icon" src="https://raw.githubusercontent.com/AndyObtiva/glimmer_klondike_solitaire/master/package/linux/Glimmer%20Klondike%20Solitaire.png" height=40 /> [Download v1.0.1 for the Mac (x64 Big Sur and older)](https://www.dropbox.com/s/h6ntl5wma1xs6bz/Glimmer%20Klondike%20Solitaire-1.0.1.dmg?dl=1)
 

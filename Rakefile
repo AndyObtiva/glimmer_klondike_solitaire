@@ -18,7 +18,7 @@ Juwelier::Tasks.new do |gem|
   gem.homepage = "http://github.com/AndyObtiva/glimmer_klondike_solitaire"
   gem.license = "MIT"
   gem.summary = %Q{Glimmer Klondike Solitaire}
-  gem.description = %Q{Glimmer Klondike Solitaire}
+  gem.description = %Q{Glimmer Klondike Solitaire (requires JRuby)}
   gem.email = "andy.am@gmail.com"
   gem.authors = ["Andy Maleh"]
 

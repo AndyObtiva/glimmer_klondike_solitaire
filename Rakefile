@@ -54,11 +54,7 @@ Rake::RDocTask.new do |rdoc|
 end
 
 require 'glimmer/rake_task'
-Glimmer::RakeTask::Package.javapackager_extra_args =
-  " -name 'Glimmer Klondike Solitaire'" +
-  " -title 'Glimmer Klondike Solitaire'" +
-  " -Bmac.CFBundleName='Glimmer Klondike Solitaire'" +
-  " -Bmac.CFBundleIdentifier='org.glimmerklondikesolitaire.application.Glimmerklondikesolitaire'"
-  # " -BlicenseType=" +
-  # " -Bmac.category=" +
-  # " -Bmac.signing-key-developer-id-app="
+Glimmer::RakeTask::Package.jpackage_extra_args =
+  " --name 'Glimmer Klondike Solitaire'" +
+  " --description 'Glimmer Klondike Solitaire'"
+  # You can add more options from https://docs.oracle.com/en/java/javase/16/jpackage/packaging-tool-user-guide.pdf

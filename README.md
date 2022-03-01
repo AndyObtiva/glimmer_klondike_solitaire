@@ -9,8 +9,29 @@
 
 <img alt="Glimmer Klondike Solitaire Icon" src="https://raw.githubusercontent.com/AndyObtiva/glimmer_klondike_solitaire/master/package/linux/Glimmer%20Klondike%20Solitaire.png" height=40 /> [Download v1.0.1 for the Mac (x64 Big Sur and older)](https://www.dropbox.com/s/h6ntl5wma1xs6bz/Glimmer%20Klondike%20Solitaire-1.0.1.dmg?dl=1)
 
-Contributing to glimmer_klondike_solitaire
-------------------------------------------
+## Ruby Gem
+
+If you are a software engineer and would rather install this game as a Ruby gem, please follow these instructions.
+
+First, make sure you have all the [prerequisites of Glimmer DSL for SWT](https://github.com/AndyObtiva/glimmer-dsl-swt#pre-requisites) setup on your machine like Java and JRuby.
+
+Run:
+
+```
+gem install glimmer_wordle
+```
+
+Afterwards, run:
+
+```
+glimmer_wordle
+```
+
+## Change Log
+
+[CHANGELOG.md](/CHANGELOG.md)
+
+## Contributing
 
 -   Check out the latest master to make sure the feature hasn't been
     implemented or the bug hasn't been fixed yet.
@@ -26,12 +47,11 @@ Contributing to glimmer_klondike_solitaire
     is fine, but please isolate to its own commit so I can cherry-pick
     around it.
 
-Copyright
----------
+## Copyright
 
 [MIT](LICENSE.txt)
 
-Copyright (c) 2021 Andy Maleh
+Copyright (c) 2021-2022 Andy Maleh
 
 --
 

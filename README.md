@@ -7,6 +7,8 @@
 
 ![Klondike Solitaire Screenshot](/images/glimmer-klondike-solitaire.png)
 
+<img alt="Glimmer Klondike Solitaire Icon" src="https://raw.githubusercontent.com/AndyObtiva/glimmer_klondike_solitaire/master/icons/linux/Glimmer%20Klondike%20Solitaire.png" height=40 /> [Download v1.1.0 for the Mac (arm64 Monterey and older)](https://www.dropbox.com/s/lia4tae0e0fljpw/Glimmer%20Klondike%20Solitaire-arm64-1.1.0.dmg?dl=1)
+
 <img alt="Glimmer Klondike Solitaire Icon" src="https://raw.githubusercontent.com/AndyObtiva/glimmer_klondike_solitaire/master/icons/linux/Glimmer%20Klondike%20Solitaire.png" height=40 /> [Download v1.1.0 for the Mac (x64 Catalina and older)](https://www.dropbox.com/s/3ji12web6md322w/Glimmer%20Klondike%20Solitaire-1.1.0.dmg?dl=1)
 
 <img alt="Glimmer Klondike Solitaire Icon" src="https://raw.githubusercontent.com/AndyObtiva/glimmer_klondike_solitaire/master/icons/linux/Glimmer%20Klondike%20Solitaire.png" height=40 /> [Download v1.0.1 for the Mac (x64 Big Sur and older)](https://www.dropbox.com/s/h6ntl5wma1xs6bz/Glimmer%20Klondike%20Solitaire-1.0.1.dmg?dl=1)

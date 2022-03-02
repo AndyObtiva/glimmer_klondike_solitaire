@@ -3,8 +3,6 @@
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 [![Gem Version](https://badge.fury.io/rb/glimmer_klondike_solitaire.svg)](http://badge.fury.io/rb/glimmer_klondike_solitaire)
 
-[Glimmer DSL for SWT](https://github.com/AndyObtiva/glimmer-dsl-swt) External Sample.
-
 ![Klondike Solitaire Screenshot](/images/glimmer-klondike-solitaire.png)
 
 <img alt="Glimmer Klondike Solitaire Icon" src="https://raw.githubusercontent.com/AndyObtiva/glimmer_klondike_solitaire/master/icons/linux/Glimmer%20Klondike%20Solitaire.png" height=40 /> [Download v1.1.0 for the Mac (arm64 Monterey and older)](https://www.dropbox.com/s/lia4tae0e0fljpw/Glimmer%20Klondike%20Solitaire-arm64-1.1.0.dmg?dl=1)

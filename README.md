@@ -22,13 +22,13 @@ First, make sure you have all the [prerequisites of Glimmer DSL for SWT](https:/
 Run:
 
 ```
-gem install glimmer_wordle
+gem install glimmer_klondike_solitaire
 ```
 
 Afterwards, run:
 
 ```
-glimmer_wordle
+glimmer_klondike_solitaire
 ```
 
 ## Change Log

@@ -29,7 +29,7 @@ class GlimmerKlondikeSolitaire
             margin_height 0
           }
           minimum_size 2*PLAYING_CARD_MARGIN + 7*(PLAYING_CARD_WIDTH + PLAYING_CARD_SPACING) - PLAYING_CARD_SPACING, 800 + PLAYING_CARD_MARGIN
-          image File.join(APP_ROOT, 'package', 'linux', "Glimmer Klondike Solitaire.png")
+          image File.join(APP_ROOT, 'icons', 'linux', "Glimmer Klondike Solitaire.png")
           text "Glimmer Klondike Solitaire"
           background :dark_green
         

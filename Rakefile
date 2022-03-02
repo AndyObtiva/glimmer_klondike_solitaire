@@ -22,9 +22,10 @@ Juwelier::Tasks.new do |gem|
   gem.email = "andy.am@gmail.com"
   gem.authors = ["Andy Maleh"]
 
-  gem.files = Dir['VERSION', 'LICENSE.txt', 'app/**/*', 'bin/**/*', 'config/**/*', 'db/**/*', 'docs/**/*', 'fonts/**/*', 'icons/**/*', 'images/**/*', 'lib/**/*', 'package/**/*', 'script/**/*', 'sounds/**/*', 'vendor/**/*', 'videos/**/*']
+  gem.files = Dir['VERSION', 'LICENSE.txt', 'app/**/*', 'bin/**/*', 'config/**/*', 'db/**/*', 'docs/**/*', 'fonts/**/*', 'icons/**/*', 'images/**/*', 'lib/**/*', 'script/**/*', 'sounds/**/*', 'vendor/**/*', 'videos/**/*']
   gem.require_paths = ['vendor', 'lib', 'app']
   gem.executables = ['glimmer_klondike_solitaire']
+  gem.post_install_message = ['You may run glimmer_klondike_solitaire to start the game!']
   # dependencies defined in Gemfile
 end
 Juwelier::RubygemsDotOrgTasks.new

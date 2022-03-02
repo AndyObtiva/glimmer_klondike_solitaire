@@ -1,4 +1,4 @@
 # TODO
 
-- Render playing-card images on cards instead of text
+- Track number of wins per player
 - Fix clipped edges (margins)
